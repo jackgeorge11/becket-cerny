@@ -1,0 +1,71 @@
+// BUTTONS
+
+@use "sass:math";
+
+@mixin button($fs: $xlg, $fw: $thick, $email: false) {
+    font-size: $fs;
+    $font-weight: $fw;
+    text-decoration: none;
+    color: $light;
+    @include trans();
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 1vw;
+        left: 0;
+        width: 90%;
+        margin-left: 10%;
+        height: calc($fs / 10);
+        background-color: $light;
+        @include trans();
+        transform: translate3d(-100%, 0, 0);
+        }
+
+    &:hover {
+        @if $email {
+            color: $email;
+        } @else {
+            color: $secondary;
+        }
+
+        &::after {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            @if $email {
+                background-color: $email;
+            } @else {
+                background-color: $secondary;
+            }
+        }
+    }
+
+    &.is--active {
+        @if $email {
+            background-color: $email;
+        } @else {
+            background-color: $secondary;
+        }
+
+        &::after {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+// TRANSITIONS
+
+@mixin trans($var: all, $t: $fast) {
+    transition: $var $t;
+}
+
+// BORDERS
+
+@mixin border () {
+    border: $border-width solid $light;
+}
