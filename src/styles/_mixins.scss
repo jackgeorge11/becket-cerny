@@ -1,6 +1,12 @@
-// BUTTONS
-
 @use "sass:math";
+
+// TRANSITIONS
+
+@mixin trans($var: all, $t: $fast, $d: 0s) {
+    transition: $var $t $d;
+}
+
+// BUTTONS
 
 @mixin button($fs: $xlg, $fw: $thick, $email: false) {
     font-size: $fs;
@@ -16,11 +22,15 @@
     &::after {
         content: '';
         position: absolute;
-        bottom: 1vw;
+        bottom: 0;
         left: 0;
         width: 90%;
         margin-left: 10%;
-        height: calc($fs / 10);
+        @if $fs == $sm {
+            height: math.div($fs, 10); 
+        } @else {
+            height: math.div($fs, 10);
+        }
         background-color: $light;
         @include trans();
         transform: translate3d(-100%, 0, 0);
@@ -46,26 +56,53 @@
 
     &.is--active {
         @if $email {
-            background-color: $email;
+            color: $email;
         } @else {
-            background-color: $secondary;
+            color: $secondary;
         }
 
         &::after {
             opacity: 1;
             transform: translate3d(0, 0, 0);
+            @if $email {
+                background-color: $email;
+            } @else {
+                background-color: $secondary;
+            }
         }
     }
 }
 
-// TRANSITIONS
-
-@mixin trans($var: all, $t: $fast) {
-    transition: $var $t;
-}
-
 // BORDERS
 
-@mixin border () {
+@mixin border {
     border: $border-width solid $light;
+}
+
+// PARALLAX
+
+@function calculate-scale($x) {
+    $sub: (8 - $x);
+    $amount: math.div($sub, 8);
+
+    @return $amount;
+}
+
+@mixin para($x: 0, $z: 0, $t: auto, $l: auto, $r: auto) {
+    transform: translateZ(#{$x}px) scale(calculate-scale($x));
+    transform-origin: 0 50%;
+    z-index: $z;
+
+    position: absolute;
+    top: $t;
+    left: $l;
+    right: $r;
+}
+
+@mixin block($w, $h, $c) {
+    width: $w;
+    height: $h;
+    background-color: $c;
+    content: " ";
+    z-index: -100;
 }

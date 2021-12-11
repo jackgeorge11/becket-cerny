@@ -1,5 +1,80 @@
 .index {
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+    perspective: 8px;
+    perspective-origin: 0%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    .sound {
+        @include para($x: -1, $t: 0rem, $r: -1vw);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        transform-origin: 100% 50%;
+        font-size: $lg;
+        font-weight: $reg;
+        line-height: 5.5vw;
+
+        div {
+            width: fit-content;
+        }
+        div::after {
+            content: "sound";
+        }
+
+        .design:hover::after {
+            content: "design";
+            color: $primary;
+        }
+
+        .production:hover::after {
+            content: "production";
+            color: $primary;
+        }
+
+        .mixing:hover::after {
+            content: "mixing";
+            color: $primary;
+        }
+
+        .scoring:hover::after {
+            content: "scoring";
+            color: $primary;
+        }
+    }
+
+    .b-sound {
+        @include para($x: 0, $t: 5rem, $r: 12vw);
+        @include block($c: $c2, $w: 18vw, $h:18vw);
+    }
+
     .title {
         @include button;
+        font-weight: $reg;
+    }
+
+    // TITLES
+
+    .madison {
+        @include para($x: 3, $t:13rem, $l: 5vw)
+    }
+
+    .olivia {
+        @include para($x: 1, $t:18rem, $l: 5vw)
+    }
+
+    .flood {
+        @include para($x: 3, $t:20rem, $l: 5vw)
+    }
+
+    .chet {
+        @include para($x: 3, $t:30rem, $l: 5vw)
+    }
+
+    .grace {
+        @include para($x: 3, $t:60rem, $l: 5vw)
     }
 }

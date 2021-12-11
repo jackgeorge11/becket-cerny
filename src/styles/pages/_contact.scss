@@ -1,0 +1,27 @@
+.contact {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-width: 100vw;
+    max-height: 100vh;
+
+    .emails {
+        min-width: 201vw;
+        max-width: 201vw;
+        display: flex;
+        flex-wrap: wrap;
+        transform: rotate(-30deg);
+
+        a {
+            @each $index, $color in $colors {
+                &.c#{$index} {
+                    @include button($fs: $sm, $email: $color)
+                }
+            }
+
+            margin: $g-xsm;
+        }
+    }
+}

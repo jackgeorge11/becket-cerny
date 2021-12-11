@@ -7,23 +7,30 @@ $light: #ecdcad;
 $dark: #000;
 
 $c1: #355d3f;
-$c1: #8bb88d;
-$c1: #5b4e30;
-$c1: #71282f;
-$c1: #cf7538;
+$c2: #8bb88d;
+$c3: #5b4e30;
+$c4: #71282f;
+$c5: #cf7538;
+
+$colors: (1: $c1, 2: $c2, 3: $c3, 4: $c4, 5: $c5, 6: $primary, 7: $secondary);
 
 // FONTS
 
-$thick: 400;
+$thick: 500;
+$reg: 400;
 $thin: 300;
 
 $xlg: 10vw;
-$lg: 7.5vw;
+$lg: 6vw;
 $md: 2.5vw;
-$sm: 1;
-$xsm: .5vw;
+$sm: 2vw;
+$xsm: .85vw;
 
 // GUTTERS
+
+$g-lg: 2vw;
+$g-sm: .5vw;
+$g-xsm: .3vw;
 
 // TRANSITIONS
 
@@ -32,4 +39,4 @@ $fast: .25s;
 
 // BORDERS
 
-$border-width: 5px;
+$border-width: 2px;

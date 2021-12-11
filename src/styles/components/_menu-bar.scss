@@ -1,0 +1,59 @@
+.menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    .name-block {
+        background-color: $dark;
+        @include border;
+        padding: .25rem .5rem;
+        font-size: 1.5rem;
+        width: fit-content;
+        margin: -4.25rem 0 0 1rem;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .hamburger-block {
+        @include border;
+        width: fit-content;
+        margin: .4rem 1rem 0 8rem;
+        background-color: $dark;
+        z-index: 10;
+    }
+
+    .bg-block {
+        content: " ";
+        background-color: $primary;
+        width: 8rem;
+        height: 2.75rem;
+        margin: 2rem 0 0 .5rem;
+        @include border;
+        z-index: -1000;
+        @include trans($t: $slow, $d: $fast);
+
+        &.is--active {
+            background-color: $secondary;
+            @include trans($t: $slow);
+        }
+    }
+
+    .helper-menu, .helper-scroll {
+        font-size: .75rem;
+        @include trans($var: opacity, $t: $slow, $d: $fast + $slow);
+        opacity: 1;
+
+        &.scrolled {
+            transition: opacity $fast;
+            opacity: 0;
+        }
+    }
+
+    .helper-menu {
+        margin: .5rem 0 0 6.45rem;
+    }
+    .helper-scroll {
+        margin: 0 .75rem;
+    }
+}
