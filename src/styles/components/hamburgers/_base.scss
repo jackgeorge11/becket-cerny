@@ -24,7 +24,6 @@
   overflow: visible;
 
   &.is--active {
-
     .hamburger-inner,
     .hamburger-inner::before,
     .hamburger-inner::after {
@@ -53,7 +52,7 @@
     background-color: $hamburger-layer-color;
     border-radius: $hamburger-layer-border-radius;
     position: absolute;
-    transition-property: transform;
+    transition-property: transform color;
     transition-duration: 0.15s;
     transition-timing-function: ease;
   }
@@ -71,4 +70,6 @@
   &::after {
     bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
   }
+
+  
 }

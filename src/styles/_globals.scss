@@ -13,24 +13,30 @@ body {
 
 .xlg {
     font-size: $xlg;
-    line-height: 11vw;
+    line-height: 12.5vw;
     margin: 0;
 }
 
 .lg {
     font-size: $lg;
-    line-height: 7.5vw;
+    line-height: 9vw;
     margin: 0;
 }
 
 .md {
     font-size: $md;
-    line-height: 2vw;
+    line-height: 4vw;
     margin: 0;
 }
 
 .sm {
+    font-size: $sm;
+    line-height: 3vw;
+    margin: 0;
+}
+
+.xsm {
     font-size: $xsm;
-    line-height: 1vw;
+    line-height: 2.5vw;
     margin: 0;
 }

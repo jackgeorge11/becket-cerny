@@ -8,11 +8,13 @@
         background-color: $dark;
         @include border;
         padding: .25rem .5rem;
-        font-size: 1.5rem;
         width: fit-content;
         margin: -4.25rem 0 0 1rem;
-        cursor: pointer;
         z-index: 10;
+
+        a {
+            @include button($fs: 1.5rem)
+        }
     }
 
     .hamburger-block {
@@ -21,6 +23,18 @@
         margin: .4rem 1rem 0 8rem;
         background-color: $dark;
         z-index: 10;
+
+        .hamburger:hover {
+            .hamburger-box {
+                .hamburger-inner {
+                    &,
+                    &::before,
+                    &::after {
+                        background-color: $secondary;
+                    }
+                }
+            }
+        }
     }
 
     .bg-block {

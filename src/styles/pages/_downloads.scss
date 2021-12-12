@@ -1,0 +1,107 @@
+.downloads {
+    padding-top: 10rem;
+
+    .download {
+        margin: $g-xlg;
+        @include trans;
+        border-bottom: .5vw solid $light;
+        padding-bottom: $g-lg;
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            .title {
+                @include button($fs: $lg);
+                font-weight: $reg;
+            }
+
+            .date {
+                font-weight: $thin;
+                @include trans;
+                opacity: 0;
+            }
+        }
+        
+        .arrow {
+            display: inline-block;
+            font-size: $md;
+            font-weight: $thin;
+            margin-top: -1vw;
+            margin-left: ($md * -1);
+            @include trans($t: $slow);
+            transform-origin: center;
+            position: absolute;
+        }
+
+        .content {
+            @include trans;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+
+            .subheader {
+                margin: $g-lg 0;
+            }
+    
+            .cta {
+                display: flex;
+                justify-content: space-evenly;
+                margin: $g-md 0 $g-lg;
+    
+                a {
+                    @include button($fs: $md)
+                }
+            }
+    
+            .body {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: $g-md;
+
+                .description {
+                    padding-right: $g-md;
+                    width: 30vw;
+                    max-width: 30vw;
+
+                    h2 {
+                        font-weight: $thin;
+                    }
+                }
+
+                .body-image {
+                    flex: 1;
+                }
+            }
+
+            .close {
+                @include button($fs: $xsm);
+                font-weight: $thin;
+                align-self: center;
+            }
+        }
+        
+
+        &.is--active {
+            .header {
+                .date {
+                    opacity: 1;
+                }
+            }
+
+            .content {
+                max-height: 1000vw;
+                opacity: 1;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+                color: $primary;
+            }
+        }
+    }
+}

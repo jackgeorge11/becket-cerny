@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
 import Menu from "../components/Menu";
 import "../styles/styles.scss";

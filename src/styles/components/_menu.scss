@@ -16,7 +16,7 @@
     a {
         @include button($fs: $lg);
         @extend .lg;
-        margin-right: $g-lg;
+        margin-right: $g-md;
         opacity: 0;
         @include trans;
     }
