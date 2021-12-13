@@ -1,0 +1,58 @@
+.case-studies {
+    padding-top: 8rem;
+    display: flex;
+    justify-content: space-between;
+
+    .col {
+        width: 26vw;
+        padding: 0 1.5vw;
+
+        .case-study {
+            width: 100%;
+            position: relative;
+            margin-bottom: $g-lg;
+
+            .title {
+                font-weight: $reg;
+                @include button($fs: $lg)
+            }
+
+            .date {
+                margin: $g-xsm 0;
+            }
+
+            .description {
+                margin: $g-xsm 0;
+                font-weight: $thin;
+            }
+
+            .block-0, .block-1 {
+                content: " ";
+                position: absolute;
+                @each $index, $color in $colors {
+                    &.c#{$index} {
+                        background-color: $color;
+                    }
+                }
+            }
+    
+            .block-0 {
+                width: 90%;
+                height: 0;
+                padding-bottom: 90%;
+                right: -1vw;
+                top: -1vw;
+                z-index: -1;
+            }
+
+            .block-1 {
+                width: 90%;
+                height: 0;
+                padding-bottom: 133%;
+                left: -2.5vw;
+                top: 5vw;
+                z-index: -1;
+            }
+        }
+    }
+}
