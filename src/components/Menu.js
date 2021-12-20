@@ -39,6 +39,7 @@ function Menu({ page, scroll }) {
           contact
         </Link>
       </div>
+      <div className="grain"/>
     </>
   );
 }
