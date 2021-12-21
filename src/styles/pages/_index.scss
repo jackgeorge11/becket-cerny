@@ -66,8 +66,32 @@
         @include para($x: 1, $t:18rem, $l: 5vw)
     }
 
+    .absolut {
+        @include para($x: 3, $t:15rem, $l: 0vw);
+
+
+        div {
+            border-radius: 1000px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 30vw;
+        }
+    }
+
     .flood {
-        @include para($x: 3, $t:20rem, $l: 5vw)
+        @include para($x: 3, $t:20rem, $l: 5vw);
+        overflow: hidden;
+
+        div {
+            border-radius: 1000px;
+            overflow: hidden;
+        }
+
+        img {
+            width: 30vw;
+        }
     }
 
     .chet {
@@ -75,6 +99,18 @@
     }
 
     .grace {
-        @include para($x: 3, $t:60rem, $l: 5vw)
+        @include para($x: 3, $t:60rem, $l: 5vw);
+
+        img {
+            width: 60vw;
+        }
+    }
+
+    .day {
+        @include para($x: 3, $t: 15rem, $l: 5vw);
+
+        img {
+            width: 30vw;
+        }
     }
 }

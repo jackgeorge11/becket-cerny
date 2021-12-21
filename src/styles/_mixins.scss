@@ -97,6 +97,8 @@
     top: $t;
     left: $l;
     right: $r;
+
+    transition: all $fast;
 }
 
 @mixin block($w, $h, $c) {

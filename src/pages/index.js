@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
+
 import Menu from "../components/Menu";
 import "../styles/styles.scss";
+import { StaticImage } from "gatsby-plugin-image";
 
 function Index() {
   const [scroll, setScroll] = useState(0);
@@ -9,11 +11,9 @@ function Index() {
   const homeRef = useRef();
 
   const handleScroll = () => {
-      const scrollTop = homeRef.current.scrollTop;
-      setScroll(scrollTop);
-    };
-
-  console.log(scroll)
+    const scrollTop = homeRef.current.scrollTop;
+    setScroll(scrollTop);
+  };
 
   return (
     <>
@@ -31,31 +31,34 @@ function Index() {
         <Link to="case-studies#madison-beer" className="title xlg madison">
           madison beer
         </Link>
-        <Link to="case-studies#madison-beer" className="title xlg olivia">
-          olivia o'brien
-        </Link>
-        <Link to="case-studies#madison-beer" className="title xlg flood">
-          flood magazine
-        </Link>
         <Link to="case-studies#madison-beer" className="title xlg chet">
           chet faker
         </Link>
-        <Link to="case-studies#madison-beer" className="title xlg grace">
-          goody grace<span className="md"> ft. </span>
-          <br />
-          g-eazy & juicy j
+        <Link to="case-studies#madison-beer" className="title xlg olivia">
+          olivia o'brien
         </Link>
 
         {/* LOGO */}
-        {/* <Link to="case-studies#madison-beer" className="title xlg">
-          madison
+        <Link to="case-studies" className="absolut">
+          <div>
+            <StaticImage src="../images/logos/absolut.jpg" />
+          </div>
         </Link>
-        <Link to="case-studies#madison-beer" className="title xlg">
-          madison
-        </Link> */}
+        <Link to="case-studies" className="flood">
+          <div>
+            <StaticImage src="../images/logos/flood.jpg" />
+          </div>
+        </Link>
+
+        {/* COVERS */}
+        <Link to="case-studies" className="day">
+          <StaticImage src="../images/covers/day-by-day.jpeg" />
+        </Link>
 
         {/* STILLS */}
-
+        <Link to="case-studies" className="grace">
+          <StaticImage src="../images/stills/nothing-good.png" />
+        </Link>
         {/* BLOCKS */}
         <div className="b-sound" />
       </div>
