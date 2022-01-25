@@ -20,26 +20,29 @@
 
     div {
       width: fit-content;
-    }
-    div::after {
+  }
+  .design::after, .mixing::after {
       content: "sound";
-    }
-
-    .design::after {
-      content: "sound(design)";
-    }
-
-    .production::after {
-      content: "music(production)";
-    }
-
-    .mixing::after {
-      content: "sound(mixing)";
-    }
-
-    .scoring::after {
-      content: "music(scoring)";
-    }
+  }
+  .production::after, .scoring::after {
+      content: "music";
+  }
+  .design:hover::after {
+      content: "(sound)design";
+      color: $primary;
+  }
+  .production:hover::after {
+      content: "(music)production";
+      color: $primary;
+  }
+  .mixing:hover::after {
+      content: "(sound)mixing";
+      color: $primary;
+  }
+  .scoring:hover::after {
+      content: "(music)scoring";
+      color: $primary;
+  }
   }
 
   .title {

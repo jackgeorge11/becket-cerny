@@ -58,7 +58,6 @@ function Index() {
           <div className="mixing" />
           <div className="scoring" />
         </div>
-
         <Link to="case-studies#madison-beer" className="title xlg madison">
           madison beer
         </Link>
@@ -68,7 +67,6 @@ function Index() {
         <Link to="case-studies#olivia-obrien" className="title xlg olivia">
           olivia o'brien
         </Link>
-
         <Link to="case-studies#flood-magazine" className="flood logo">
           <div>
             <StaticImage alt="image" src="../images/logos/flood.jpg" />
@@ -79,7 +77,6 @@ function Index() {
             <StaticImage alt="image" src="../images/logos/absolut.jpg" />
           </div>
         </Link>
-
         <Link to="case-studies#day-by-day-podcast" className="day still">
           <StaticImage
             alt="day by day podcast image"
