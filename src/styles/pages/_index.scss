@@ -1,116 +1,337 @@
 .index {
-    width: 100%;
-    min-height: 100vh;
-    max-height: 100vh;
-    perspective: 8px;
-    perspective-origin: 0%;
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: scroll;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  perspective: 8px;
+  perspective-origin: 0%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
-    .sound {
-        @include para($x: -1, $t: 0rem, $r: -1vw);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        transform-origin: 100% 50%;
-        font-size: $lg;
-        font-weight: $reg;
-        line-height: 5.5vw;
+  .sound {
+    @include para($x: -0.5, $t: 6, $r: .5vw, $z: 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transform-origin: 100% 50%;
+    font-size: calc($md * 1.3);
+    font-weight: $reg;
+    line-height: 3.5vw;
 
-        div {
-            width: fit-content;
-        }
-        div::after {
-            content: "sound";
-        }
-
-        .design:hover::after {
-            content: "design";
-            color: $primary;
-        }
-
-        .production:hover::after {
-            content: "production";
-            color: $primary;
-        }
-
-        .mixing:hover::after {
-            content: "mixing";
-            color: $primary;
-        }
-
-        .scoring:hover::after {
-            content: "scoring";
-            color: $primary;
-        }
+    div {
+      width: fit-content;
+    }
+    div::after {
+      content: "sound";
     }
 
-    .b-sound {
-        @include para($x: 0, $t: 5rem, $r: 12vw);
-        @include block($c: $c2, $w: 18vw, $h:18vw);
+    .design::after {
+      content: "sound(design)";
     }
 
-    .title {
-        @include button;
-        font-weight: $reg;
+    .production::after {
+      content: "music(production)";
     }
 
-    // TITLES
-
-    .madison {
-        @include para($x: 3, $t:13rem, $l: 5vw)
+    .mixing::after {
+      content: "sound(mixing)";
     }
 
-    .olivia {
-        @include para($x: 1, $t:18rem, $l: 5vw)
+    .scoring::after {
+      content: "music(scoring)";
+    }
+  }
+
+  .title {
+    @include button;
+    font-weight: $reg;
+  }
+
+  .logo {
+    border: $border;
+    border-radius: 1000px;
+    overflow: hidden;
+
+    &:hover {
+      border-color: $dark;
+    }
+  }
+
+  .still {
+    border: $border;
+
+    &:hover {
+      border-color: $dark;
+    }
+  }
+
+  // TITLES
+
+  .madison {
+    @include para($x: 3, $t: 13, $l: 4vw);
+  }
+
+  .chet {
+    @include para($x: 2.5, $t: 20, $r: 25vw);
+  }
+
+  .flood {
+    @include para($x: 1.5, $t: 22, $l: 5vw, $z: 10);
+    overflow: hidden;
+
+    div {
+      border-radius: 1000px;
+      overflow: hidden;
     }
 
-    .absolut {
-        @include para($x: 3, $t:15rem, $l: 0vw);
+    img {
+      width: 30vw;
+    }
+  }
 
+  .ben {
+    @include para($x: 2.5, $t: 29, $r: 20vw, $z: 15);
 
-        div {
-            border-radius: 1000px;
-            overflow: hidden;
-        }
+    img {
+      width: 58vw;
+    }
+  }
 
-        img {
-            width: 30vw;
-        }
+  .olivia {
+    @include para($x: 3, $t: 42, $l: 5vw, $z: 20);
+  }
+
+  .day {
+    @include para($x: 3, $t: 47, $l: 8vw, $z: 6);
+
+    img {
+      width: 25vw;
+    }
+  }
+
+  .absolut {
+    @include para($x: 4.5, $t: 40, $l: 25vw, $z: 10);
+
+    div {
+      border-radius: 1000px;
+      overflow: hidden;
     }
 
-    .flood {
-        @include para($x: 3, $t:20rem, $l: 5vw);
-        overflow: hidden;
+    img {
+      width: 30vw;
+    }
+  }
 
-        div {
-            border-radius: 1000px;
-            overflow: hidden;
-        }
+  .grace {
+    @include button($fs: $lg);
+    @include para($x: 4, $t: 65, $l: 3vw, $z: 10);
+  }
 
-        img {
-            width: 30vw;
-        }
+  .breathe {
+    @include para($x: 2.9, $t: 45, $r: 28vw, $z: 5);
+
+    img {
+      width: 40vw;
+    }
+  }
+
+  .beer-pic {
+    @include para($x: 2.1, $t: 50, $l: 17vw);
+
+    img {
+      width: 70vw;
+    }
+  }
+
+  .sundance {
+    @include para($x: 2.5, $t: 70, $l: 35vw, $z: 1, $laurel: true);
+
+    img {
+      width: 30vw;
+    }
+  }
+
+  .forbes {
+    @include para($x: 3, $t: 72, $l: 9vw, $z: 1, $laurel: true);
+
+    img {
+      width: 28vw;
+    }
+  }
+
+  .short-of-week {
+    @include para($x: 3, $t: 75, $l: 47vw, $z: -5, $laurel: true);
+
+    img {
+      width: 20vw;
+    }
+  }
+
+  .audience {
+    @include para($x: 2.1, $t: 76, $l: 4vw, $z: -5, $laurel: true);
+
+    img {
+      width: 18vw;
+    }
+  }
+
+  .bibff {
+    @include para($x: 3.3, $t: 82, $l: 6vw, $z: -5, $laurel: true);
+
+    img {
+      width: 15vw;
+    }
+  }
+
+  .sxsw {
+    @include para($x: 2.5, $t: 76, $l: 21vw, $z: -2, $laurel: true);
+
+    img {
+      width: 35vw;
+    }
+  }
+
+  .women-fest {
+    @include para($x: 4, $t: 80, $l: 34vw, $z: -2, $laurel: true);
+
+    img {
+      width: 18vw;
+    }
+  }
+
+  .face {
+    @include para($x: 4, $t: 85, $l: 2vw, $z: -2, $laurel: true);
+
+    img {
+      width: 40vw;
+    }
+  }
+
+  .black-fest {
+    @include para($x: 3.5, $t: 85, $l: 29vw, $z: -2, $laurel: true);
+
+    img {
+      width: 25vw;
+    }
+  }
+
+  .short-fest {
+    @include para($x: 4, $t: 75, $l: 35vw, $z: -2, $laurel: true);
+
+    img {
+      width: 25vw;
+    }
+  }
+
+  // BLOCKS
+
+  .b-sound {
+    @include para($x: -1, $t: 4.2, $r: -2vw, $z: -100);
+    @include block($c: $c2, $w: 32vw, $h: 16vw);
+  }
+
+  .b-madison {
+    @include para($x: 2, $t: 18, $l: 10vw, $z: -5);
+    @include block($c: $c5, $w: 55vw, $h: 10vw);
+  }
+
+  .b-chet {
+    @include para($x: -1, $t: 10, $l: 5vw);
+    @include block($c: $c3, $w: 10vw, $h: 10vw);
+    border-radius: 1000px;
+  }
+
+  .b-grace {
+    @include para(
+      $x: 2.4,
+      $t: 15,
+      $r: 32vw,
+      $custom: true,
+      $transform: rotate3d(0, 1, 0, 0.3deg)
+    );
+    @include block($c: $c1, $w: 22vw, $h: 50vw);
+  }
+
+  .b-olivia {
+    @include para($x: 1, $t: 25, $l: 7vw, $z: -15);
+    @include block($c: $c4, $w: 51vw, $h: 35vw);
+  }
+
+  .b-day {
+    @include para($x: 1, $t: 35, $l: 7vw, $z: -15);
+    @include block($c: $c4, $w: 51vw, $h: 35vw);
+  }
+
+  .b-absolut {
+    @include para($x: 0, $t: 47, $r: -5vw, $z: -15);
+    @include block($c: $c1, $w: 65vw, $h: 15vw);
+  }
+
+  .b-ben {
+    @include para(
+      $x: -1,
+      $t: 40,
+      $l: 10vw,
+      $z: -10,
+      $custom: true,
+      $transform: rotate3d(0.1, 0.5, -5, 10deg)
+    );
+    @include block($c: $c3, $w: 80vw, $h: 58vw);
+  }
+
+  .b-breathe {
+    @include para($x: -2, $t: 50, $r: 5vw, $z: -1000);
+    @include block($c: transparent, $w: 0, $h: 0);
+    border-right: 0px solid transparent;
+    border-bottom: 45vw solid $c5;
+    border-left: 75vw solid transparent;
+  }
+
+  .bubbles {
+    @include para($x: 1, $t: 95, $l: 10vw);
+    @include block($c: transparent, $w: 25vw, $h: 25vw);
+    padding-bottom: 25vw;
+
+    @include media($bp: $tablet) {
+      padding-bottom: 35vw;
     }
 
-    .chet {
-        @include para($x: 3, $t:30rem, $l: 5vw)
+    @include media() {
+      padding-bottom: 50vw;
     }
 
-    .grace {
-        @include para($x: 3, $t:60rem, $l: 5vw);
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
 
-        img {
-            width: 60vw;
-        }
+      .bubble {
+        border: $border;
+        border-color: $dark;
+        border-radius: 1000px;
+        position: absolute;
+      }
+
+      .b-1 {
+        width: 30%;
+        height: 30%;
+        background-color: $c2;
+        right: 10%;
+      }
+      .b-2 {
+        width: 20%;
+        height: 20%;
+        background-color: $c2;
+        top: 35%;
+        right: 35%;
+      }
+      .b-3 {
+        width: 15%;
+        height: 15%;
+        background-color: $c2;
+        top: 50%;
+        right: 10%;
+      }
     }
-
-    .day {
-        @include para($x: 3, $t: 15rem, $l: 5vw);
-
-        img {
-            width: 30vw;
-        }
-    }
+  }
 }

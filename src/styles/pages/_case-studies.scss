@@ -1,58 +1,91 @@
 .case-studies {
-    padding-top: 10rem;
+  padding-top: 10rem;
+  display: flex;
+  justify-content: space-between;
+
+  @include media {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col {
+    width: 26vw;
+    padding: 0 1.5vw;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 
-    .col {
-        width: 26vw;
-        padding: 0 1.5vw;
-
-        .case-study {
-            width: 100%;
-            position: relative;
-            margin-bottom: $g-lg;
-
-            .title {
-                font-weight: $reg;
-                @include button($fs: $lg)
-            }
-
-            .date {
-                margin: $g-xsm 0;
-            }
-
-            .description {
-                margin: $g-xsm 0;
-                font-weight: $thin;
-            }
-
-            .block-0, .block-1 {
-                content: " ";
-                position: absolute;
-                @each $index, $color in $colors {
-                    &.c#{$index} {
-                        background-color: $color;
-                    }
-                }
-            }
-    
-            .block-0 {
-                width: 90%;
-                height: 0;
-                padding-bottom: 90%;
-                right: -1vw;
-                top: -1vw;
-                z-index: -1;
-            }
-
-            .block-1 {
-                width: 90%;
-                height: 0;
-                padding-bottom: 133%;
-                left: -2.5vw;
-                top: 5vw;
-                z-index: -1;
-            }
-        }
+    @include media {
+      width: 90vw;
     }
+
+    .case-study-wrapper {
+      padding-top: 150px;
+      margin-top: -150px;
+
+      .case-study {
+        width: 95%;
+        position: relative;
+        margin-bottom: $g-lg;
+        padding: 0 0.5vw;
+
+        &.is--active {
+          border: $border;
+        }
+
+        .title {
+          font-weight: $reg;
+          @include button($fs: $lg);
+        }
+
+        .date {
+          margin: $g-xsm 0;
+
+          @include media {
+            font-size: $md;
+            line-height: 4vw;
+          }
+        }
+
+        .description {
+          margin: $g-xsm 0;
+          font-weight: $thin;
+
+          @include media {
+            font-size: $lg;
+            line-height: 9vw;
+          }
+        }
+
+        .block-0,
+        .block-1 {
+          content: " ";
+          position: absolute;
+          @each $index, $color in $colors {
+            &.c#{$index} {
+              background-color: $color;
+            }
+          }
+        }
+
+        .block-0 {
+          width: 90%;
+          height: 0;
+          padding-bottom: 90%;
+          right: -1vw;
+          top: -1vw;
+          z-index: -1;
+        }
+
+        .block-1 {
+          width: 90%;
+          height: 0;
+          padding-bottom: 133%;
+          left: -2.5vw;
+          top: 5vw;
+          z-index: -1;
+        }
+      }
+    }
+  }
 }

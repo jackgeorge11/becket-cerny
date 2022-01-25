@@ -1,110 +1,203 @@
 @use "sass:math";
 
+// MEDIA
+
+@mixin media($bp: $mobile, $max: false) {
+  @if $max == false {
+    @media (max-width: $bp) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $bp) {
+      @content;
+    }
+  }
+}
+
 // TRANSITIONS
 
 @mixin trans($var: all, $t: $fast, $d: 0s) {
-    transition: $var $t $d;
+  transition: $var $t $d;
 }
 
 // BUTTONS
 
 @mixin button($fs: $xlg, $fw: $thick, $email: false) {
-    font-size: $fs;
-    $font-weight: $fw;
-    text-decoration: none;
-    color: $light;
+  font-size: $fs;
+  $font-weight: $fw;
+  text-decoration: none;
+  color: $light;
+  @include trans();
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+
+  @include media {
+    @if $fs == $xsm {
+      font-size: $sm;
+    } @else if $fs == $sm {
+      font-size: $md;
+    } @else if $fs == $md {
+      font-size: $lg;
+    } @else if $fs == $lg {
+      font-size: $xlg;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    margin-left: 10%;
+    @if $fs == $sm {
+      height: math.div($fs, 10);
+    } @else {
+      height: math.div($fs, 10);
+    }
+    background-color: $light;
     @include trans();
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    cursor: pointer;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  &:hover {
+    @if $email {
+      color: $email;
+    } @else {
+      color: $secondary;
+    }
 
     &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 90%;
-        margin-left: 10%;
-        @if $fs == $sm {
-            height: math.div($fs, 10); 
-        } @else {
-            height: math.div($fs, 10);
-        }
-        background-color: $light;
-        @include trans();
-        transform: translate3d(-100%, 0, 0);
-        }
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      @if $email {
+        background-color: $email;
+      } @else {
+        background-color: $secondary;
+      }
+    }
+  }
 
-    &:hover {
-        @if $email {
-            color: $email;
-        } @else {
-            color: $secondary;
-        }
-
-        &::after {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            @if $email {
-                background-color: $email;
-            } @else {
-                background-color: $secondary;
-            }
-        }
+  &.is--active {
+    @if $email {
+      color: $email;
+    } @else {
+      color: $secondary;
     }
 
-    &.is--active {
-        @if $email {
-            color: $email;
-        } @else {
-            color: $secondary;
-        }
-
-        &::after {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            @if $email {
-                background-color: $email;
-            } @else {
-                background-color: $secondary;
-            }
-        }
+    &::after {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      @if $email {
+        background-color: $email;
+      } @else {
+        background-color: $secondary;
+      }
     }
+  }
 }
 
 // BORDERS
 
 @mixin border {
-    border: $border-width solid $light;
+  border: $border-width solid $light;
 }
 
 // PARALLAX
 
 @function calculate-scale($x) {
-    $sub: (8 - $x);
-    $amount: math.div($sub, 8);
+  $sub: (8 - $x);
+  $amount: math.div($sub, 8);
 
-    @return $amount;
+  @return $amount;
 }
 
-@mixin para($x: 0, $z: 0, $t: auto, $l: auto, $r: auto) {
-    transform: translateZ(#{$x}px) scale(calculate-scale($x));
-    transform-origin: 0 50%;
-    z-index: $z;
+@mixin para(
+  $x: 0,
+  $z: 0,
+  $t: auto,
+  $l: auto,
+  $r: auto,
+  $custom: false,
+  $transform: "",
+  $laurel: false
+) {
+  @if $custom == true {
+    transform: $transform translateZ(#{$x}px) scale(calculate-scale($x));
+  } @else {
+    transform: translate3d(0, 0, 0)
+      translateZ(#{$x}px)
+      scale(calculate-scale($x));
+  }
+  transform-origin: 0 50%;
+  z-index: $z;
 
-    position: absolute;
-    top: $t;
-    left: $l;
-    right: $r;
+  position: absolute;
+  top: #{$t}rem;
+  left: $l;
+  right: $r;
 
-    transition: all $fast;
+  transition: all $fast;
+
+  $power: math.log(10, $t);
+
+  @if $laurel == false {
+    @include media($bp: $tablet) {
+      top: #{$t * $power}rem;
+    }
+    @include media($bp: $tablet, $max: true) {
+      top: #{math.div($t, $power) * 0.7}rem;
+    }
+    @include media($bp: $wide-screen, $max: true) {
+      top: #{math.div($t, $power)}rem;
+    }
+    @include media($bp: $wide-screen, $max: true) {
+      top: #{math.div($t, $power) * 1.2}rem;
+    }
+  } @else {
+    @include media($bp: $tablet) {
+      top: #{$t * $power + 7}rem;
+    }
+    @include media() {
+      top: #{$t * $power + 2}rem;
+    }
+    @include media($bp: $tablet, $max: true) {
+      top: #{math.div($t, $power) * 0.7}rem;
+    }
+    @include media($bp: $wide-screen, $max: true) {
+      top: #{math.div($t, $power)}rem;
+    }
+    @include media($bp: $wide-screen, $max: true) {
+      top: #{math.div($t, $power) * 1.2}rem;
+    }
+  }
 }
 
 @mixin block($w, $h, $c) {
-    width: $w;
-    height: $h;
-    background-color: $c;
-    content: " ";
-    z-index: -100;
+  width: $w;
+  height: $h;
+  background-color: $c;
+  content: " ";
+  z-index: -100;
+}
+
+@mixin marquee-keyframe($dir) {
+  @keyframes marquee-#{$dir} {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      @if $dir == left {
+        transform: translate(-100%, 0);
+      } @else {
+        transform: translate(100%, 0);
+      }
+    }
+  }
+}
+
+@mixin marquee($d, $t) {
+  animation: marquee-#{$d} $t linear infinite;
 }

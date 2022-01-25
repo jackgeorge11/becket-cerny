@@ -1,0 +1,141 @@
+.four-oh-four {
+  display: flex;
+  justify-content: center;
+  padding-top: 10rem;
+  width: 100vw;
+  height: calc(100vh - 10rem);
+  position: relative;
+
+  .block {
+    margin-top: 5vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 15vw;
+    @include trans;
+    animation: 5s colores linear infinite;
+  }
+
+  .nums-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    animation: 6.5s move-four linear infinite;
+    transition: none;
+
+    .nums {
+      position: relative;
+
+      .num {
+        position: absolute;
+
+        &.dark {
+          top: 0;
+          left: 0;
+          color: $dark;
+        }
+
+        &.light {
+          top: 0.35vw;
+          left: 0.35vw;
+        }
+      }
+    }
+  }
+}
+
+@keyframes colores {
+  0%,
+  100% {
+    background-color: $c2;
+  }
+  20% {
+    background-color: $c1;
+  }
+  27% {
+    opacity: 1;
+  }
+  28% {
+    opacity: 0;
+  }
+  29% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 1;
+  }
+  36% {
+    opacity: 0;
+  }
+  37% {
+    opacity: 1;
+  }
+  40% {
+    background-color: $c3;
+  }
+  60% {
+    background-color: $c4;
+  }
+  70% {
+    opacity: 1;
+  }
+  71% {
+    opacity: 0;
+  }
+  72% {
+    opacity: 1;
+  }
+  80% {
+    background-color: $c5;
+  }
+}
+
+@keyframes move-four {
+  0%,
+  100% {
+    left: 50%;
+    top: 47%;
+  }
+  10% {
+    left: 50%;
+    top: 47%;
+  }
+  10.1% {
+    left: 40%;
+    top: 40%;
+  }
+  25% {
+    left: 40%;
+    top: 40%;
+  }
+  25.1% {
+    left: 50%;
+    top: 47%;
+  }
+  88% {
+    left: 50%;
+    top: 47%;
+  }
+  88.1% {
+    left: 5%;
+    top: 70%;
+  }
+  95% {
+    left: 5%;
+    top: 70%;
+  }
+  95.1% {
+    left: 80%;
+    top: 17%;
+  }
+  99.8% {
+    left: 80%;
+    top: 17%;
+  }
+  99.9% {
+    left: 50%;
+    top: 47%;
+  }
+}

@@ -4,6 +4,11 @@
     left: 0;
     z-index: 1000;
 
+    @include media($bp: $tablet) {
+        transform: scale(.75);
+        transform-origin: 0 0;
+    }
+
     .name-block {
         background-color: $dark;
         @include border;

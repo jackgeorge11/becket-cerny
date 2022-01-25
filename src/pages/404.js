@@ -1,54 +1,27 @@
-import * as React from "react"
-import { Link } from "gatsby"
-
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+import * as React from "react";
+import { Helmet } from "react-helmet";
+import Menu from "../components/Menu";
 
 // markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    <div className="four-oh-four">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Becket Cerny | 404 (Page Not Found)</title>
+        <meta name="robots" content="noindex"></meta>
+        <link rel="icon" href="favicon.png" />
+      </Helmet>
+      <Menu scroll={true} page="none" />
+      <div className="block" />
+      <div className="nums-wrapper">
+        <div className="nums lg">
+          <span className="num dark">404</span>
+          <span className="num light">404</span>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default NotFoundPage
+export default NotFoundPage;

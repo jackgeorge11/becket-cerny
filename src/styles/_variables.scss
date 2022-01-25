@@ -24,7 +24,7 @@ $xlg: 10vw;
 $lg: 7vw;
 $md: 3vw;
 $sm: 2vw;
-$xsm: 1.5vw;
+$xsm: 1.2vw;
 
 // GUTTERS
 
@@ -42,3 +42,11 @@ $fast: .25s;
 // BORDERS
 
 $border-width: 2px;
+$border: $border-width solid $light;
+
+// SCREEN SIZES
+
+$tablet: 768px;
+$mobile: 425px;
+$wide-screen: 1600px;
+$wider-screen: 2200px;

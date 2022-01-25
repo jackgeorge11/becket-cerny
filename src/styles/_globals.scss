@@ -1,42 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap");
 
 * {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
 }
 
 body {
-    margin: 0;
-    color: $light;
-    background-color: $dark;
+  margin: 0;
+  color: $light;
+  background-color: $dark;
 }
 
 .xlg {
-    font-size: $xlg;
-    line-height: 12.5vw;
-    margin: 0;
+  font-size: $xlg;
+  line-height: 12.5vw;
+  margin: 0;
 }
 
 .lg {
-    font-size: $lg;
-    line-height: 9vw;
-    margin: 0;
+  font-size: $lg;
+  line-height: 9vw;
+  margin: 0;
+
+  @include media {
+    font-size: $xlg;
+    line-height: 12.5vw;
+  }
 }
 
 .md {
-    font-size: $md;
-    line-height: 4vw;
-    margin: 0;
+  font-size: $md;
+  line-height: 4vw;
+  margin: 0;
 }
 
 .sm {
-    font-size: $sm;
-    line-height: 3vw;
-    margin: 0;
+  font-size: $sm;
+  line-height: 3vw;
+  margin: 0;
 }
 
 .xsm {
-    font-size: $xsm;
-    line-height: 2.5vw;
-    margin: 0;
+  font-size: $xsm;
+  line-height: 1.5vw;
+  margin: 0;
+}
+
+.gatsby-image-wrapper {
+  div {
+    max-width: none !important;
+  }
 }
